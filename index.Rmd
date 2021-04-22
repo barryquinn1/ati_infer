@@ -42,7 +42,7 @@ layout: true
 ---
 name: ATL-title
 class: inverse,left, middle
-background-image: url(Users/barry/Home/Dropbox/FinancialMachineLearning/FML/slides/img/title-slide-img.png)
+background-image: url(/Users/barry/Home/Dropbox/FinancialMachineLearning/FML/slides/img/title-slide-img.png)
 background-size: cover
 
 .salt[FIN7030]
