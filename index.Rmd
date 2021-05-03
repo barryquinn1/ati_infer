@@ -1,13 +1,14 @@
 ---
-title: "Algorithmic trading and investment"
-subtitle: "FIN7030"
+title: "FIN7030: Algorithmic trading and investment"
+subtitle: "Algorithms and statistical inference"
 author: "Barry Quinn"
-date: "`r Sys.Date()`"
+date: "`2020-12-15`"
 output:
   xaringan::moon_reader:
     css: ["fonts.css","default", "mycssblend.css"]
     includes::
       in_header: ["mathjax-equation-numbers.html"]
+      after_body: insert-logo.html
     lib_dir: libs
     nature:
       countdown: 120000
@@ -35,7 +36,6 @@ library(tidyverse)
 ```
 
 layout: true
-  git
 <div class="my-footer"><span>quinference.com</span></div>
 
 
@@ -188,7 +188,7 @@ class: middle
 - The variability of replications at any value of `factor`
 ]
 .pull-right[
-<src="img/lowess_ani.gif">
+[](img/lowess_ani.gif)
 ]
 ---
 class:middle
