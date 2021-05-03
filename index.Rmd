@@ -188,7 +188,8 @@ class: middle
 - The variability of replications at any value of `factor`
 ]
 .pull-right[
-[](img/lowess_ani.gif)
+<iframe width="600" height="500"
+   src="img/lowess_ani.gif" </iframe>
 ]
 ---
 class:middle
