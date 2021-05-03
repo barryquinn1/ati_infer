@@ -191,34 +191,27 @@ class: middle
 <iframe width="600" height="500"
    src="img/lowess_ani.gif" </iframe>
 ]
+
 ---
 class:middle
 # Hypothesis testing
+```{r, include=FALSE}
+library(ati)
+ati::daily_factors->uk_factors
+uk_factors %>% mutate(Bull=if_else(rm>0,"Up","Not Up")) -> uk_factors
+meanUP<-mean(uk_factors$hml[uk_factors$Bull=='Up'])
+mean_notUP<-mean(uk_factors$hml[uk_factors$Bull=='Not Up'])
+```
 
 .pull-left[
 - There has also been a march of methodology and inference for hypothesis testing rather than estimation
 - Consider questions about where value investing is better in a bull or a bear market?
-```{r,include=FALSE}
-library(ati)
-ati::daily_factors->uk_factors
-uk_factors %>% mutate(Bull=if_else(rm>0,"Up","Not Up")) -> uk_factors
-meanUP<-mean(uk_factors$hml[uk_factors$Bull=='Up'])
-mean_notUP<-mean(uk_factors$hml[uk_factors$Bull=='Not Up'])
-uk_factors %>% ggplot(aes(x=hml, fill=Bull)) +
-  geom_histogram(bins=15) +
-  facet_wrap(~Bull)
-```
 - The plots shows the histogram of these two groups in the uk data.Up markets to seem to have a more positive return then down markets.
-- The mean values for up and not up are in fact `r round(meanUP,5)` and `r round(mean_notUP,5)` respectively 
+- The mean values for up and not up are in fact `r sprintf("%.5f",meanUP)` and `r sprintf("%.5f",mean_notUP)` respectively 
 - Is the perceived difference genuine or as some people would say **a statistical fluke**
 ]
 .pull-right[
 ```{r, echo=FALSE, fig.width=8}
-library(ati)
-ati::daily_factors->uk_factors
-uk_factors %>% mutate(Bull=if_else(rm>0,"Up","Not Up")) -> uk_factors
-meanUP<-mean(uk_factors$hml[uk_factors$Bull=='Up'])
-mean_notUP<-mean(uk_factors$hml[uk_factors$Bull=='Not Up'])
 uk_factors %>% ggplot(aes(x=hml, fill=Bull)) +
   geom_histogram(bins=15) +
   facet_wrap(~Bull)
@@ -254,26 +247,37 @@ class: middle
 - A primary goal of empirical research is to identify the variables involved in a phenomenon
 - The identification of these variables is a prerequisite to the formulation of a theory
 - In classical statistics (e.g., Econometric), the significance of variables is established through p values
+-  p values suffer from multiple flaws, which have led to the acknowledgment that [most discoveries in finance are false](http://dx.doi.org/10.1111/jofi.12530)
 ]
-- .heatinline[ p values suffer from multiple flaws, which have led to the acknowledgment that [most discoveries in finance are false](http://dx.doi.org/10.1111/jofi.12530)]
 
 .blockquote[
-#### ML inference 
+#### FML inference 
 - False discovery rate theory is an impressive advance in statistical inference, incorporating Bayesian ,frequentist, and empirical Bayesian elements.
 - It was a *necessary* advance in a scientific world where computer-based technology routinely presents thousands of comparisons to be evaluated at once.
 ]
+
 ---
 class: middle
 # The algorithm/inference cycle
-- .content-box-red[Important new algorithms often arise outside the world of professional statisticians: neural nets, support vector machines, and boosting are three famous examples. 
-- None of this is surprising.]
-.content-box-yellow[
-- New sources of data, satellite imagery for example, video content of CEOs, inspire novel methodology from the observing scientists. 
-- The early literature tends toward the enthusiastic, with claims of enormous applicability and power.]
-.centext-box-orange[
+
+
+.pull-left[
+.content-box-red[
+### Phase one
+* Important new algorithms often arise outside the world of professional statisticians: neural nets, support vector machines, and boosting are three famous examples. 
+* None of this is surprising.
+* New sources of data, satellite imagery for example, video content of CEOs, inspire novel methodology from the observing scientists.
+* The early literature tends toward the enthusiastic, with claims of enormous applicability and power.
+]
+]
+.pull-right[
+.content-box-green[
+### Phase two
 - In the second phase, statisticians try to locate the new metholodogy within the framework of statistical theory. 
-- In other words, they carry out the statistical inference part of the cycle, placing the new methodology within the known Bayesian and frequentist limits of performance.]
-- .fancy[This is a healthy chain of events, good both for the hybrid vigor of the statistics profession and for the further progress of algorithmic technology.]
+- In other words, they carry out the statistical inference part of the cycle, placing the new methodology within the known Bayesian and frequentist limits of performance.
+]
+]
+.blockquote[This is a healthy chain of events, good both for the hybrid vigor of the statistics profession and for the further progress of algorithmic technology.]
 
 ---
 class: middle
@@ -306,7 +310,7 @@ DT::datatable(
 .pull-right-1[
 - Arranging the results in ascending order of p-values.
 - With enough hypothesis test we will always discovery a fake results.
-- In financial machine learning, where we have work in high-dimensional data with many features, 1000's of comparisons are common. 
+- In financial machine learning, where we have to work with high-dimensional data with many features, 1000's of comparisons are common. 
 ]
 
 ---
@@ -317,12 +321,12 @@ m=mean(uk_factors$hml)
 se=standard_error(uk_factors$hml)
 ```
 - Before the computer age there was the calculator age, and before “big data” there were small data sets, often a few hundred numbers or fewer, laboriously collected by individual scientists working under restrictive experimental constraints. 
-- Precious data calls for maximally efficient statistical analysis. 
+- **Precious data calls for maximally efficient statistical analysis.** 
 
 --
 
 - A remarkably effective theory, feasible for execution on mechanical desk calculators, was developed beginning in 1900 by Pearson, Fisher, Neyman, Hotelling, and others, and grew to dominate twentieth-century statistical practice. 
-- The theory, now referred to as classical, relied almost entirely on frequentist inferential ideas. 
+- The theory, now referred to as **classical**, relied almost entirely on **frequentist** inferential ideas. 
 ---
 # Frequentist inference example
 
@@ -334,7 +338,7 @@ standard_error(df$Price)
 
 - Recall the fake price data, which has a mean and standard error of `r round(mean(Price),2)` $\pm$ `r round(standard_error(Price),2)`
 - The $\pm$ `r round(standard_error(Price),2)` denotes a frequentist inference of accuracy of the mean estimate.
-- It suggests we should take the .23 very seriously, even the 2 being open to doubt.
+- It suggests we should **not** take the .23 very seriously, even the 2 being open to doubt.
 - But where does this inference come from??
 ---
 class: middle
@@ -354,8 +358,10 @@ $$F \to X$$
 - Suppose the desired property is the expectation of a single random draw X from F , denoted
 $$\theta=E_f\left\{ X \right\}$$
 - The obvious estimate of $\hat{\theta}=t(x)$ is the sample average.
-- if were very large $10^{10}$ we would expect $\hat{\theta}$ to nearly equal $\theta$
-- Otherwise there is room for error and **the inferential questions is how much error?**
+- If n was very large $10^{10}$ we would expect $\hat{\theta}$ to nearly equal $\theta$
+
+.blockquote[Otherwise there is room for error and **the inferential questions is how much error?**]
+
 ---
 class:middle
 # Frequentist inference
@@ -363,7 +369,7 @@ class:middle
 - Importantly, $\hat{\theta}$ is a realisation of $\bf{\Theta}=t(X)$ the output of t(.) applied to some theoretical sample $X$ from $F$
 - It follows that frequentist inference can be defined as
 .blockquote[
-The accuracy of an observerd estimate $\hat{\theta}=t(x)$ is the probabilistic accuracy of $\bf{\Theta}=t(X)$ as an estimator of $\theta$
+The accuracy of an observed estimate $\hat{\theta}=t(x)$ is the probabilistic accuracy of $\bf{\Theta}=t(X)$ as an estimator of $\theta$
 ]
 - This contains the powerful idea that $\hat{\theta}$ is just a number but $\hat{\Theta}$ takes a range of values whose spread can define measures of accuracy.
 
@@ -394,7 +400,7 @@ class: middle
 ---
 class: middle
 # Frequentism in practice
-- There is an obivous defect in this principle.  It requires the calculation of the properties of the estimators $\bf{\Theta}=t(X)$ obtained from the true distribution F, even though F is unknown.
+- There is an obvious defect in this principle.  It requires the calculation of the properties of the estimators $\bf{\Theta}=t(X)$ obtained from the true distribution F, even though F is unknown.
 - In practice frequentism uses a collection of ingenious devices to circumvent the defect, including
 1. .heatinline[The plug-in principle] for example the sample standard error formula used above.
 2. .saltinline[Taylor series approximations] Statistics more complicated than a simple average can often be related back to the plugin formula by local linear approximation sometimes know as the *delta method*.
