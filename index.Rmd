@@ -16,7 +16,7 @@ output:
       countIncrementalSlides: true
       ratio: "16:9"
       beforeInit: "https://platform.twitter.com/widgets.js"
-    seal: false 
+    seal: true
 ---
 
 ```{r setup, include=FALSE}
@@ -24,11 +24,10 @@ library(knitr)
 knitr::opts_chunk$set(warning = FALSE, message = FALSE, fig.height=5, fig.width=7)
 library(fontawesome) 
 library(xaringanExtra)
-use_tile_view()
-use_webcam()
-use_panelset()
-use_logo(image_url ='/Users/barry/Home/Dropbox/FinancialMachineLearning/FML/slides/img/redlogo.png')
-use_extra_styles(
+xaringanExtra::use_tile_view()
+xaringanExtra::use_panelset()
+xaringanExtra::use_logo(image_url ='img/redlogo.png')
+xaringanExtra::use_extra_styles(
   hover_code_line = TRUE,         #<<
   mute_unhighlighted_code = TRUE  #<<
 )
@@ -36,22 +35,9 @@ library(tidyverse)
 ```
 
 layout: true
-  
+  git
 <div class="my-footer"><span>quinference.com</span></div>
 
----
-name: ATL-title
-class: inverse,left, middle
-background-image: url(https://github.com/barryquinn1/FMLmaterial/blob/c06eec822b77fc1c2ccf2948515260fbadcea29e/slides/img/title-slide-img.png)
-background-size: cover
-
-.salt[FIN7030]
-
-# Algorithmic Trading and Investing 
-
-# .fancy[Algorithms and statistical inference]
-
-.large[Barry Quinn CStat | Queen's Management School | `r Sys.Date()`]
 
 
 ---
@@ -195,14 +181,14 @@ class: middle
 
 .pull-left[
 - Unlike the least squares algo, there is no formula to infer the accuracy of the lowess curve.
-- Instead, a computer-intensive inference engine, the `bootstrap`, was used to calcualte the error bars. 
+- Instead, a computer-intensive inference engine, the `bootstrap`, was used to calculate the error bars. 
 - The bootstrap data set is produced by resampling the 100 pairs of $(x_i,y_i)$ from the original data with replacement.
-- This results in boostraped replications of the orginal calculation
-- Opposite shows thje first 20 (of 100) bootstrap lowess replications bouncing around the orginal curve
+- This result is `bootstrapped` replications of the original calculation
+- Opposite shows the first 20 (of 100) bootstrap lowess replications bouncing around the original curve
 - The variability of replications at any value of `factor`
 ]
 .pull-right[
-<Users/barry/Home/Dropbox/FinancialMachineLearning/FML/slides/img src="img/lowess_ani.gif">
+<src="img/lowess_ani.gif">
 ]
 ---
 class:middle

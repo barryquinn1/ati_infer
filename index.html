@@ -4,16 +4,14 @@
     <title>Algorithmic trading and investment</title>
     <meta charset="utf-8" />
     <meta name="author" content="Barry Quinn" />
-    <meta name="date" content="2021-04-22" />
+    <meta name="date" content="2021-05-03" />
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/tile-view-0.2.4/tile-view.css" rel="stylesheet" />
     <script src="libs/tile-view-0.2.4/tile-view.js"></script>
-    <script src="libs/xaringanExtra-webcam-0.0.1/webcam.js"></script>
-    <script id="xaringanExtra-webcam-options" type="application/json">{"width":"200","height":"200","margin":"1em"}</script>
     <link href="libs/panelset-0.2.4/panelset.css" rel="stylesheet" />
     <script src="libs/panelset-0.2.4/panelset.js"></script>
     <link href="libs/xaringanExtra-extra-styles-0.2.4/xaringanExtra-extra-styles.css" rel="stylesheet" />
-    <script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+    <script src="libs/htmlwidgets-1.5.3.9000/htmlwidgets.js"></script>
     <script src="libs/jquery-3.5.1/jquery.min.js"></script>
     <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
     <script src="libs/datatables-binding-0.17/datatables.js"></script>
@@ -29,27 +27,22 @@
   </head>
   <body>
     <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Algorithmic trading and investment
+## FIN7030
+### Barry Quinn
+### 2021-05-03
+
+---
 
 
 
 
 layout: true
-  
+  git
 &lt;div class="my-footer"&gt;&lt;span&gt;quinference.com&lt;/span&gt;&lt;/div&gt;
 
----
-name: ATL-title
-class: inverse,left, middle
-background-image: url(https://github.com/barryquinn1/FMLmaterial/blob/c06eec822b77fc1c2ccf2948515260fbadcea29e/slides/img/title-slide-img.png)
-background-size: cover
-
-.salt[FIN7030]
-
-# Algorithmic Trading and Investing 
-
-# .fancy[Algorithms and statistical inference]
-
-.large[Barry Quinn CStat | Queen's Management School | 2021-04-22]
 
 
 ---
@@ -195,14 +188,14 @@ class: middle
 
 .pull-left[
 - Unlike the least squares algo, there is no formula to infer the accuracy of the lowess curve.
-- Instead, a computer-intensive inference engine, the `bootstrap`, was used to calcualte the error bars. 
+- Instead, a computer-intensive inference engine, the `bootstrap`, was used to calculate the error bars. 
 - The bootstrap data set is produced by resampling the 100 pairs of `\((x_i,y_i)\)` from the original data with replacement.
-- This results in boostraped replications of the orginal calculation
-- Opposite shows thje first 20 (of 100) bootstrap lowess replications bouncing around the orginal curve
+- This result is `bootstrapped` replications of the original calculation
+- Opposite shows the first 20 (of 100) bootstrap lowess replications bouncing around the original curve
 - The variability of replications at any value of `factor`
 ]
 .pull-right[
-&lt;Users/barry/Home/Dropbox/FinancialMachineLearning/FML/slides/img src="img/lowess_ani.gif"&gt;
+&lt;src="img/lowess_ani.gif"&gt;
 ]
 ---
 class:middle
@@ -315,8 +308,8 @@ DT::datatable(
 )
 ```
 
-<div id="htmlwidget-73b580a843b210a7e9a4" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-73b580a843b210a7e9a4">{"x":{"filter":"none","fillContainer":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"],[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],[0.876429914445303,0.381687098556016,0.100654891606396,0.24262691834928,0.617563400582834,0.997699710773279,0.42713604452344,0.0390214163890063,0.916951249413821,0.537831514507874,0.621767082794684,0.297498845196282,0.449942688823237,0.961769571843501,0.497841582704178,0.0134850496418204,0.854846956287448,0.0115444531560579,0.727858400424435,0.449101407542982]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>testno<\/th>\n      <th>pvalue<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"order":[2,"asc"],"columnDefs":[{"className":"dt-right","targets":[1,2]},{"orderable":false,"targets":0}],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-04cb50cbc3b6203f5d60" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-04cb50cbc3b6203f5d60">{"x":{"filter":"none","fillContainer":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"],[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],[0.876429914445303,0.381687098556016,0.100654891606396,0.24262691834928,0.617563400582834,0.997699710773279,0.42713604452344,0.0390214163890063,0.916951249413821,0.537831514507874,0.621767082794684,0.297498845196282,0.449942688823237,0.961769571843501,0.497841582704178,0.0134850496418204,0.854846956287448,0.0115444531560579,0.727858400424435,0.449101407542982]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>testno<\/th>\n      <th>pvalue<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"order":[2,"asc"],"columnDefs":[{"className":"dt-right","targets":[1,2]},{"orderable":false,"targets":0}],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 ]
 .pull-right-1[
 - Arranging the results in ascending order of p-values.
