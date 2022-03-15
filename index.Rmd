@@ -677,13 +677,18 @@ t %>%
 
 ---
 class: middle
+
 # From counting to probability
+
+.pull-left-2.small[
 - Luckily, there’s a mathematical way to compress all of this. Specifically, we define the updated plausibility of each possible composition of the bag, after seeing the data, as:
 $$\text{plausibility of [bwww] after seeing [bwb]} \propto \text{ways[bwww] can produce [bwb]} \times \text{prior plausibility[bwww]} $$
 - Probability can be thought of as plausibility standardise and if we helpfully define p=1/4 (the proportion of marbles that are blue) and $D_{new}=[bwb]$:
-.small[
+
 $$\text{Plausibility of p after }D_{new}=\frac{\text{ways p can produce }D_{new}\times\text{prior probability p}}{\text{sum of products}}$$
 ]
+
+.pull-right-1[
 ```{r, echo=FALSE}
 t %>% 
   select(p_1:p_4) %>% 
@@ -693,12 +698,13 @@ t %>%
 ```
 
 - In `R` the above formula is easily coded to give these plausibilities.
-.small[
+
 ```{r}
 ways<-c(0,3,8,9,0)
 ways/sum(ways)
 ```
 ]
+
 ---
 class: middle
 ## Bring it back to applied probability theory
@@ -761,7 +767,7 @@ $$\frac{g(\mu_1|x)}{g(\mu_2|x)}=\frac{g(\mu_1)}{g(\mu_1)}\frac{f_{\mu_1}(x)}{f_{
 class:middle 
 ## Comparison
 .pull-left[
-```{r compare,fig.cap="Bayesian inference proceeds vertically given x; frequentist inference proceeds horizontally, given mu"}
+```{r compare,fig.cap="Bayesian inference proceeds vertically given x; frequentist inference proceeds horizontally, given mu", echo=FALSE}
 library(ggrepel)
 tibble(xs=c(0,0.5),xend=c(1,0.5),
        ys=c(0.5,0),yend=c(0.5,1)) %>%
@@ -864,4 +870,7 @@ class: middle
 [Efron, Bradley, and Trevor Hastie. 2016. Computer Age Statistical Inference. Cambridge University Press.](https://encore.qub.ac.uk/iii/encore/record/C__Rb2203007%C2%A0)
 
 [Statistical rethinking : a Bayesian course with examples in R and Stan / Richard McElreath](https://encore.qub.ac.uk/iii/encore/record/C__Rb2089842__Sstatistical%20rethinking__Orightresult__U__X7?lang=eng&suite=def)
+
+Quinn, Barry, Teaching Open Science Analytics in the Age of Financial Technology (January 27, 2022). QMS Research Paper 2022/01, Available at SSRN: https://ssrn.com/abstract=4019430 or http://dx.doi.org/10.2139/ssrn.4019430 .hand[My Jerry Maguire Paper]
+
 ]
