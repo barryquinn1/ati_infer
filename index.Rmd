@@ -2,7 +2,7 @@
 title: "FIN7030: Algorithmic trading and investment"
 subtitle: "Algorithms and statistical inference"
 author: "Barry Quinn"
-date: "`2020-12-15`"
+date: "`r Sys.Date()`"
 output:
   xaringan::moon_reader:
     css: ["fonts.css","default", "mycssblend.css"]
@@ -196,8 +196,8 @@ class: middle
 class:middle
 # Hypothesis testing
 ```{r, include=FALSE}
-library(ati)
-ati::daily_factors->uk_factors
+library(fml)
+fml::daily_factors->uk_factors
 uk_factors %>% mutate(Bull=if_else(rm>0,"Up","Not Up")) -> uk_factors
 meanUP<-mean(uk_factors$hml[uk_factors$Bull=='Up'])
 mean_notUP<-mean(uk_factors$hml[uk_factors$Bull=='Not Up'])
@@ -759,9 +759,36 @@ $$\frac{g(\mu_1|x)}{g(\mu_2|x)}=\frac{g(\mu_1)}{g(\mu_1)}\frac{f_{\mu_1}(x)}{f_{
 
 ---
 class:middle 
-## A Bayesian /Frequentist Comparison
+## Comparison
 .pull-left[
-![](img/casi_bayesianvdfrequentist.png)
+```{r compare,fig.cap="Bayesian inference proceeds vertically given x; frequentist inference proceeds horizontally, given mu"}
+library(ggrepel)
+tibble(xs=c(0,0.5),xend=c(1,0.5),
+       ys=c(0.5,0),yend=c(0.5,1)) %>%
+  ggplot(aes(x=x,y=y)) + geom_segment(aes(x=xs,y=ys,xend=xend,yend=yend),arrow = arrow(length=unit(0.03,"npc"),type = "closed"),linetype=2) +
+  geom_segment(aes(x=-0.05,y=0,xend=1,yend=0),arrow = arrow(length=unit(0.03,"npc")),linetype=1) +
+   geom_segment(aes(y=-0.05,x=0,yend=1,xend=0),arrow = arrow(length=unit(0.03,"npc")),linetype=1) +
+  theme_void() +
+  theme(axis.text = element_blank(),
+        axis.ticks = element_blank()) +
+  geom_text(aes(x=1,y=0,label="chi"),parse = TRUE,position = position_nudge(x=0.05)) +
+   geom_text(aes(x=1,y=0,label="chi"),parse = TRUE,position = position_nudge(x=0.05)) +
+  geom_text(aes(x=1,y=0.5,label="f[mu](x)"),parse = TRUE,position = position_nudge(x=0.05)) +
+  geom_text(aes(y=1,x=0.5,label="g(mu / x)"),parse = TRUE,position = position_nudge(y=0.05)) +
+geom_text(aes(y=0.5,x=0,label="mu"),parse = TRUE,position = position_nudge(x=-0.02)) +
+  geom_text(aes(y=0,x=0.5,label="x"),parse = TRUE,position = position_nudge(y=-0.05))  +
+  geom_text(aes(y=0.5,x=-0.3,label="g(mu)"),parse = TRUE) +
+  geom_segment(aes(y=0.5,x=-0.2,xend=-0.1,yend=0.5),arrow =arrow(length=unit(0.03,"npc")),linetype=1) +
+  geom_segment(aes(y=0.5,x=-0.2,xend=-0.1,yend=0.7),arrow =arrow(length=unit(0.03,"npc")),linetype=1) +
+   geom_segment(aes(y=0.5,x=-0.2,xend=-0.1,yend=0.9),arrow =arrow(length=unit(0.03,"npc")),linetype=1) +
+   geom_segment(aes(y=0.5,x=-0.2,xend=-0.1,yend=0.3),arrow =arrow(length=unit(0.03,"npc")),linetype=1) +
+     geom_segment(aes(y=0.5,x=-0.2,xend=-0.1,yend=0.1),arrow =arrow(length=unit(0.03,"npc")),linetype=1)
+
+  
+
+  
+```
+
 ]
 .pull-right[
 - Bayesians and frequentists start out on the same playing field, a family of probability distributions $f_{\mu}(x)$ 

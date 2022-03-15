@@ -4,22 +4,23 @@
     <title>FIN7030: Algorithmic trading and investment</title>
     <meta charset="utf-8" />
     <meta name="author" content="Barry Quinn" />
-    <meta name="date" content="2020-12-15" />
+    <meta name="date" content="2022-03-15" />
+    <script src="libs/header-attrs-2.11/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
-    <link href="libs/tile-view-0.2.4/tile-view.css" rel="stylesheet" />
-    <script src="libs/tile-view-0.2.4/tile-view.js"></script>
-    <link href="libs/panelset-0.2.4/panelset.css" rel="stylesheet" />
-    <script src="libs/panelset-0.2.4/panelset.js"></script>
-    <link href="libs/xaringanExtra-extra-styles-0.2.4/xaringanExtra-extra-styles.css" rel="stylesheet" />
-    <script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
-    <script src="libs/jquery-3.5.1/jquery.min.js"></script>
+    <link href="libs/tile-view-0.2.6/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view-0.2.6/tile-view.js"></script>
+    <link href="libs/panelset-0.2.6/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset-0.2.6/panelset.js"></script>
+    <link href="libs/xaringanExtra-extra-styles-0.2.6/xaringanExtra-extra-styles.css" rel="stylesheet" />
+    <script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
     <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-    <script src="libs/datatables-binding-0.17/datatables.js"></script>
-    <link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
-    <link href="libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
-    <script src="libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
-    <link href="libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet" />
-    <script src="libs/crosstalk-1.1.1/js/crosstalk.min.js"></script>
+    <script src="libs/datatables-binding-0.20/datatables.js"></script>
+    <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+    <link href="libs/dt-core-1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="libs/dt-core-1.11.3/css/jquery.dataTables.extra.css" rel="stylesheet" />
+    <script src="libs/dt-core-1.11.3/js/jquery.dataTables.min.js"></script>
+    <link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+    <script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
     <script src="libs/kePrint-0.0.1/kePrint.js"></script>
     <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
     <link rel="stylesheet" href="fonts.css" type="text/css" />
@@ -32,7 +33,7 @@ class: center, middle, inverse, title-slide
 # FIN7030: Algorithmic trading and investment
 ## Algorithms and statistical inference
 ### Barry Quinn
-### <code>2020-12-15</code>
+### 2022-03-15
 
 ---
 
@@ -321,7 +322,7 @@ DT::datatable(
 ```
 
 <div id="htmlwidget-04cb50cbc3b6203f5d60" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-04cb50cbc3b6203f5d60">{"x":{"filter":"none","fillContainer":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"],[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],[0.876429914445303,0.381687098556016,0.100654891606396,0.24262691834928,0.617563400582834,0.997699710773279,0.42713604452344,0.0390214163890063,0.916951249413821,0.537831514507874,0.621767082794684,0.297498845196282,0.449942688823237,0.961769571843501,0.497841582704178,0.0134850496418204,0.854846956287448,0.0115444531560579,0.727858400424435,0.449101407542982]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>testno<\/th>\n      <th>pvalue<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"order":[2,"asc"],"columnDefs":[{"className":"dt-right","targets":[1,2]},{"orderable":false,"targets":0}],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-04cb50cbc3b6203f5d60">{"x":{"filter":"none","vertical":false,"fillContainer":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"],[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],[0.876429914445303,0.381687098556016,0.100654891606396,0.24262691834928,0.617563400582834,0.997699710773279,0.42713604452344,0.0390214163890063,0.916951249413821,0.537831514507874,0.621767082794684,0.297498845196282,0.449942688823237,0.961769571843501,0.497841582704178,0.0134850496418204,0.854846956287448,0.0115444531560579,0.727858400424435,0.449101407542982]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>testno<\/th>\n      <th>pvalue<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"order":[2,"asc"],"columnDefs":[{"className":"dt-right","targets":[1,2]},{"orderable":false,"targets":0}],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 ]
 .pull-right-1[
 - Arranging the results in ascending order of p-values.
@@ -455,7 +456,7 @@ background-size: cover
 class: middle
 # Bayesian inference 
 
-- &lt;svg style="height:0.8em;top:.04em;position:relative;" viewBox="0 0 576 512"&gt;&lt;path d="M208 0c-29.9 0-54.7 20.5-61.8 48.2-.8 0-1.4-.2-2.2-.2-35.3 0-64 28.7-64 64 0 4.8.6 9.5 1.7 14C52.5 138 32 166.6 32 200c0 12.6 3.2 24.3 8.3 34.9C16.3 248.7 0 274.3 0 304c0 33.3 20.4 61.9 49.4 73.9-.9 4.6-1.4 9.3-1.4 14.1 0 39.8 32.2 72 72 72 4.1 0 8.1-.5 12-1.2 9.6 28.5 36.2 49.2 68 49.2 39.8 0 72-32.2 72-72V64c0-35.3-28.7-64-64-64zm368 304c0-29.7-16.3-55.3-40.3-69.1 5.2-10.6 8.3-22.3 8.3-34.9 0-33.4-20.5-62-49.7-74 1-4.5 1.7-9.2 1.7-14 0-35.3-28.7-64-64-64-.8 0-1.5.2-2.2.2C422.7 20.5 397.9 0 368 0c-35.3 0-64 28.6-64 64v376c0 39.8 32.2 72 72 72 31.8 0 58.4-20.7 68-49.2 3.9.7 7.9 1.2 12 1.2 39.8 0 72-32.2 72-72 0-4.8-.5-9.5-1.4-14.1 29-12 49.4-40.6 49.4-73.9z"/&gt;&lt;/svg&gt;:The human mind is an inference machine: “It’s getting windy, the sky is darkening, I’d better bring my umbrella with me.”
+- <svg aria-hidden="true" role="img" viewBox="0 0 576 512" style="height:1em;width:1.12em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M208 0c-29.9 0-54.7 20.5-61.8 48.2-.8 0-1.4-.2-2.2-.2-35.3 0-64 28.7-64 64 0 4.8.6 9.5 1.7 14C52.5 138 32 166.6 32 200c0 12.6 3.2 24.3 8.3 34.9C16.3 248.7 0 274.3 0 304c0 33.3 20.4 61.9 49.4 73.9-.9 4.6-1.4 9.3-1.4 14.1 0 39.8 32.2 72 72 72 4.1 0 8.1-.5 12-1.2 9.6 28.5 36.2 49.2 68 49.2 39.8 0 72-32.2 72-72V64c0-35.3-28.7-64-64-64zm368 304c0-29.7-16.3-55.3-40.3-69.1 5.2-10.6 8.3-22.3 8.3-34.9 0-33.4-20.5-62-49.7-74 1-4.5 1.7-9.2 1.7-14 0-35.3-28.7-64-64-64-.8 0-1.5.2-2.2.2C422.7 20.5 397.9 0 368 0c-35.3 0-64 28.6-64 64v376c0 39.8 32.2 72 72 72 31.8 0 58.4-20.7 68-49.2 3.9.7 7.9 1.2 12 1.2 39.8 0 72-32.2 72-72 0-4.8-.5-9.5-1.4-14.1 29-12 49.4-40.6 49.4-73.9z"/></svg>:The human mind is an inference machine: “It’s getting windy, the sky is darkening, I’d better bring my umbrella with me.”
 - Unfortunately, it’s not a very dependable machine, especially when weighing complicated choices against past experience. 
 - Bayes’ theorem is a surprisingly simple mathematical guide to accurate inference. 
 - The theorem (or “rule”), now 250 years old, marked the beginning of statistical inference as a serious scientific subject. 
@@ -625,7 +626,7 @@ $$\text{plausibility of [bwww] after seeing [bwb]} \propto \text{ways[bwww] can 
 ]
 
 ```
-## # A tibble: 5 x 7
+## # A tibble: 5 × 7
 ##   p_1   p_2   p_3   p_4       p `ways to produce data` plausibility
 ##   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt;                  &lt;dbl&gt;        &lt;dbl&gt;
 ## 1 w     w     w     w      0                         0         0   
@@ -707,9 +708,35 @@ class: middle
 
 ---
 class:middle 
-## A Bayesian /Frequentist Comparison
+## Comparison
 .pull-left[
-![](img/casi_bayesianvdfrequentist.png)
+
+```r
+library(ggrepel)
+tibble(xs=c(0,0.5),xend=c(1,0.5),
+       ys=c(0.5,0),yend=c(0.5,1)) %&gt;%
+  ggplot(aes(x=x,y=y)) + geom_segment(aes(x=xs,y=ys,xend=xend,yend=yend),arrow = arrow(length=unit(0.03,"npc"),type = "closed"),linetype=2) +
+  geom_segment(aes(x=-0.05,y=0,xend=1,yend=0),arrow = arrow(length=unit(0.03,"npc")),linetype=1) +
+   geom_segment(aes(y=-0.05,x=0,yend=1,xend=0),arrow = arrow(length=unit(0.03,"npc")),linetype=1) +
+  theme_void() +
+  theme(axis.text = element_blank(),
+        axis.ticks = element_blank()) +
+  geom_text(aes(x=1,y=0,label="chi"),parse = TRUE,position = position_nudge(x=0.05)) +
+   geom_text(aes(x=1,y=0,label="chi"),parse = TRUE,position = position_nudge(x=0.05)) +
+  geom_text(aes(x=1,y=0.5,label="f[mu](x)"),parse = TRUE,position = position_nudge(x=0.05)) +
+  geom_text(aes(y=1,x=0.5,label="g(mu / x)"),parse = TRUE,position = position_nudge(y=0.05)) +
+geom_text(aes(y=0.5,x=0,label="mu"),parse = TRUE,position = position_nudge(x=-0.02)) +
+  geom_text(aes(y=0,x=0.5,label="x"),parse = TRUE,position = position_nudge(y=-0.05))  +
+  geom_text(aes(y=0.5,x=-0.3,label="g(mu)"),parse = TRUE) +
+  geom_segment(aes(y=0.5,x=-0.2,xend=-0.1,yend=0.5),arrow =arrow(length=unit(0.03,"npc")),linetype=1) +
+  geom_segment(aes(y=0.5,x=-0.2,xend=-0.1,yend=0.7),arrow =arrow(length=unit(0.03,"npc")),linetype=1) +
+   geom_segment(aes(y=0.5,x=-0.2,xend=-0.1,yend=0.9),arrow =arrow(length=unit(0.03,"npc")),linetype=1) +
+   geom_segment(aes(y=0.5,x=-0.2,xend=-0.1,yend=0.3),arrow =arrow(length=unit(0.03,"npc")),linetype=1) +
+     geom_segment(aes(y=0.5,x=-0.2,xend=-0.1,yend=0.1),arrow =arrow(length=unit(0.03,"npc")),linetype=1)
+```
+
+![Bayesian inference proceeds vertically given x; frequentist inference proceeds horizontally, given mu](index_files/figure-html/compare-1.png)
+
 ]
 .pull-right[
 - Bayesians and frequentists start out on the same playing field, a family of probability distributions `\(f_{\mu}(x)\)` 
